@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vynora Technologies website
 
-## Getting Started
-
-First, run the development server:
+Marketing site for **Vynora Technologies L.L.C** (Dubai software development agency). Next.js (App Router) + TypeScript + Tailwind v4.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
+- `src/lib/site.ts` – company info, nav, stock photo IDs (Unsplash) and video URLs (Pexels)
+- `src/lib/data.ts` – services, case studies, process, FAQs, blog posts, jobs, pricing (edit content here)
+- `src/components/` – Navbar, Footer, shared UI, FAQ, counters, contact form
+- `src/app/` – pages: `/`, `/services[/slug]`, `/work[/slug]`, `/process`, `/industries`, `/about`, `/pricing`, `/blog[/slug]`, `/careers`, `/contact`, `/privacy`, `/terms`, plus `sitemap.xml`, `robots.txt`, `404`
+- `src/app/api/contact/route.ts` – validates the form; set `CONTACT_WEBHOOK_URL` (Slack/Zapier/n8n/CRM) to forward leads
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Before launch
+- Replace placeholder testimonials, stats, concept case studies and pricing with real ones
+- Add phone, street address and social links to `site.ts`
+- Set `site.url` to the real domain
+- Swap stock photos/videos for your own, or download them locally (check Unsplash/Pexels licences)
