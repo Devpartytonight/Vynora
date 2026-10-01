@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
   };
   return (
-    <html lang="en" className={`${inter.variable} ${grotesk.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${grotesk.variable}`}>
       <body className="min-h-screen flex flex-col">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Navbar />
