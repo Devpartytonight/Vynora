@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Play, Quote, Star, CheckCircle2 } from "lucide-react";
 import { CTA, Container, Heading, ProjectCard, Section, ServiceCard } from "@/components/ui";
+import { BgVideo } from "@/components/BgVideo";
 import { Counter } from "@/components/Counter";
 import { Faq } from "@/components/Faq";
 import { Icon } from "@/components/Icon";
@@ -13,17 +14,9 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden pt-24">
-        <video
-          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-50"
-          src={videos.hero}
-          poster={img(photos.matrix, 1800)}
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-hidden
-        />
+      <section className="relative isolate flex min-h-[92svh] items-center overflow-hidden pt-24">
+        <Image src={img(photos.matrix, 1800)} alt="" fill priority sizes="100vw" className="-z-20 object-cover opacity-40" />
+        <BgVideo className="absolute inset-0 -z-20 h-full w-full object-cover opacity-50" src={videos.hero} />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-bg/70 via-bg/60 to-bg" />
         <div className="grid-bg absolute inset-0 -z-10 opacity-50" />
         <div className="blob absolute left-1/3 top-1/4 -z-10 h-[28rem] w-[28rem] rounded-full bg-brand/30 blur-[140px]" />
@@ -35,7 +28,7 @@ export default function Home() {
               <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
               Now booking projects for Q4 · Dubai, UAE
             </span>
-            <h1 className="font-display mt-7 text-5xl font-semibold leading-[1.02] sm:text-7xl lg:text-[5.5rem]">
+            <h1 className="font-display mt-7 text-[2.6rem] font-semibold leading-[1.05] sm:text-7xl lg:text-[5.5rem]">
               We build software <span className="grad-text">that scales</span> with your ambition.
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
@@ -177,7 +170,7 @@ export default function Home() {
 
       {/* VIDEO / SHOWCASE BAND */}
       <section className="relative isolate overflow-hidden py-28">
-        <video className="absolute inset-0 -z-10 h-full w-full object-cover opacity-40" src={videos.alt} autoPlay muted loop playsInline preload="none" aria-hidden />
+        <BgVideo className="absolute inset-0 -z-10 h-full w-full object-cover opacity-40" src={videos.alt} />
         <div className="absolute inset-0 -z-10 bg-bg/70" />
         <Container className="grid gap-10 text-center md:grid-cols-3">
           {[

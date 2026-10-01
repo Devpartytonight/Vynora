@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { BgVideo } from "./BgVideo";
 import { Icon } from "./Icon";
 import { img, videos } from "@/lib/site";
 import type { Project, Service } from "@/lib/data";
@@ -48,7 +49,7 @@ export function Heading({
   return (
     <div className={`reveal max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <h2 className="font-display mt-5 text-3xl font-semibold leading-tight sm:text-5xl">{title}</h2>
+      <h2 className="font-display mt-5 text-[1.75rem] font-semibold leading-tight sm:text-5xl">{title}</h2>
       {text && <p className="mt-5 text-lg leading-relaxed text-muted">{text}</p>}
     </div>
   );
@@ -80,7 +81,7 @@ export function PageHero({
       <Container className="relative">
         <div className="max-w-4xl">
           <Eyebrow>{eyebrow}</Eyebrow>
-          <h1 className="font-display mt-6 text-4xl font-semibold leading-[1.05] sm:text-6xl lg:text-7xl">{title}</h1>
+          <h1 className="font-display mt-6 text-[2.1rem] font-semibold leading-[1.1] sm:text-6xl lg:text-7xl">{title}</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">{text}</p>
           {children}
         </div>
@@ -145,17 +146,8 @@ export function CTA({
 }) {
   return (
     <section className="px-5 sm:px-8 pb-20 sm:pb-28">
-      <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-line">
-        <video
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
-          src={videos.cta}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          aria-hidden
-        />
+      <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-line sm:rounded-[2rem]">
+        <BgVideo className="absolute inset-0 h-full w-full object-cover opacity-40" src={videos.cta} />
         <div className="absolute inset-0 bg-gradient-to-br from-brand/60 via-bg/80 to-brand2/30" />
         <div className="relative px-6 py-16 text-center sm:px-16 sm:py-24">
           <h2 className="font-display mx-auto max-w-3xl text-3xl font-semibold leading-tight sm:text-5xl">{title}</h2>

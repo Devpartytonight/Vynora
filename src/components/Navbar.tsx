@@ -18,16 +18,21 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", on);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all ${
-        scrolled || open ? "bg-bg/80 backdrop-blur-xl border-b border-line" : "bg-transparent"
+        open ? "bg-bg border-b border-line" : scrolled ? "bg-bg/80 backdrop-blur-xl border-b border-line" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" aria-label="Vynora Technologies home">
+        <Link href="/" aria-label="Vynora Technologies home" onClick={() => setOpen(false)}>
           <Logo />
         </Link>
         <nav className="hidden lg:flex items-center gap-1" aria-label="Main">
@@ -54,7 +59,7 @@ export function Navbar() {
             Start a project <ArrowUpRight size={16} />
           </Link>
           <button
-            className="lg:hidden rounded-full border border-line p-2"
+            className="grid h-11 w-11 place-items-center rounded-full border border-line lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -64,14 +69,14 @@ export function Navbar() {
         </div>
       </div>
       {open && (
-        <div className="lg:hidden border-t border-line px-5 pb-6 pt-3">
+        <div className="lg:hidden h-[calc(100svh-4rem)] overflow-y-auto border-t border-line px-5 pb-8 pt-3">
           <div className="flex flex-col">
             {[...nav, { label: "Pricing", href: "/pricing" }, { label: "Careers", href: "/careers" }].map((n) => (
-              <Link key={n.href} href={n.href} className="border-b border-line py-3.5 text-lg">
+              <Link key={n.href} href={n.href} onClick={() => setOpen(false)} className="border-b border-line py-3.5 text-lg">
                 {n.label}
               </Link>
             ))}
-            <Link href="/contact" className="mt-5 rounded-full bg-fg py-3 text-center font-medium text-bg">
+            <Link href="/contact" onClick={() => setOpen(false)} className="mt-5 rounded-full bg-fg py-3 text-center font-medium text-bg">
               Start a project
             </Link>
           </div>

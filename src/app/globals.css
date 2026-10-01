@@ -26,9 +26,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-inter), system-ui, sans-serif;
@@ -112,4 +116,11 @@ body {
   .reveal { opacity: 1; transform: none; transition: none; }
   .marquee, .float, .blob { animation: none; }
   html { scroll-behavior: auto; }
+}
+
+@media (max-width: 767px) {
+  /* lighter motion and cheaper blur on phones */
+  .blob { filter: blur(80px); animation: none; }
+  .card-hover:hover { transform: none; }
+  .reveal { transform: translateY(14px); }
 }
