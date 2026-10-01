@@ -4,7 +4,7 @@ export const site = {
   tagline: "We design, build and run software that scales.",
   description:
     "Vynora Technologies is a Dubai-based software development agency building web platforms, mobile and social apps, cloud infrastructure and data systems for ambitious businesses.",
-  url: "https://vynora.tech",
+  url: "https://vynoratechnologies.com",
   email: "vynoratechnologies@gmail.com",
   location: "Dubai, United Arab Emirates",
   license: "Licensed by the Dubai Department of Economy & Tourism",

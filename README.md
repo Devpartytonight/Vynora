@@ -18,5 +18,5 @@ npm run build && npm start
 ## Before launch
 - Replace placeholder testimonials, stats, concept case studies and pricing with real ones
 - Add phone, street address and social links to `site.ts`
-- Set `site.url` to the real domain
+- `site.url` is set to https://vynoratechnologies.com
 - Swap stock photos/videos for your own, or download them locally (check Unsplash/Pexels licences)

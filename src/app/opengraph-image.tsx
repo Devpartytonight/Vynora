@@ -50,7 +50,7 @@ export default function OgImage() {
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26, color: "#22d3ee" }}>
           <span>Software development agency · Dubai, UAE</span>
-          <span>vynora.tech</span>
+          <span>vynoratechnologies.com</span>
         </div>
       </div>
     ),
